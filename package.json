@@ -1,0 +1,27 @@
+{
+  "name": "radiuscalculation",
+  "version": "1.0.0",
+  "description": "calculating max radius of a country",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "sambhavjain",
+  "dependencies": {
+    "async": "^2.1.4",
+    "body-parser": "~1.13.2",
+    "bson": "^1.0.4",
+    "cookie-parser": "~1.3.5",
+    "csvtojson": "^1.0.0",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "fast-csv": "^2.1.0",
+    "geolib": "^2.0.22",
+    "jade": "~1.11.0",
+    "jsonfile": "^2.4.0",
+    "mongoose": "3.8.39",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
+  },
+  "license": "ISC"
+}
