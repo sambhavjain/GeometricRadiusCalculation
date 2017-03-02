@@ -23,8 +23,7 @@ app.get('/read', function(req, res){
   var converter = new Converter({});
    
   //end_parsed will be emitted once parsing finished 
-  converter.on("end_parsed", function (jsonArray) {
-     // console.log(jsonArray); //here is your result jsonarray 
+  converter.on("end_parsed", function (jsonArray) { 
      var json = JSON.stringify(jsonArray)
      console.log('json = '+json)
      fs.writeFile('./countryCentroids.jsoxn', json, 'utf8')
@@ -38,24 +37,6 @@ app.get('/read', function(req, res){
 app.get('/calculate', function(req, res){
   // console.log('country name = ' + obj[0].country);
   var arr=[];
-  // for(var i=0; i<252; i++){
-  //   func1(i)
-    // var distanceFromTopRight = greatCircleDistance(maxLat, centLat, maxLong, centLong);
-    // var distanceFromBottomLeft = greatCircleDistance(minLat, centLat, minLong, centLong);
-    // var distanceFromTopRight = greatCircleDistance(35, 23, 97, 79);
-    // var distanceFromBottomLeft = greatCircleDistance(6, 23, 65, 79);
-    // var distanceFromTopRight = getRadius({latitude: 35, longitude:97}, {latitude:22.7, longitude: 79});
-    // var distanceFromBottomLeft = getRadius({latitude:6, longitude: 65}, {latitude:22.7, longitude:79});
-    // var radius;
-    // if(distanceFromBottomLeft > distanceFromTopRight)
-    //   radius = distanceFromBottomLeft;
-    // else
-    //   radius = distanceFromTopRight;
-    // debugger;
-    // var obj = {country : centroidObj[i].country, radius : radius, centroid : [centroidObj[i].lat, centroidObj[i].lng]}
-    // debugger;
-    // arr.push(obj)
-  // } 
   
   // function func1(i){
     return new Promise(function(resolve, reject){
@@ -80,16 +61,7 @@ app.get('/calculate', function(req, res){
               radius = Math.ceil((distanceFromBottomLeft+distanceFromTopRight)/2);
               var obj = {country : centroidObj[i].country, radius : radius, centroid : [centroidObj[i].lat, centroidObj[i].lng]}
               arr.push(obj) 
-             // console.log(arr)
-              
-            //    jsonfile.spaces = 4
- 
-            //   var file = '/countryData.json'
-               
-            //   // json file has four space indenting now 
-            //   jsonfile.writeFile(file, arr, function (err) {
-            //     console.error(err)
-            //   })
+        
               resolve();
             //   // console.log(arr)
             }
@@ -101,12 +73,7 @@ app.get('/calculate', function(req, res){
         res.json(arr)        
 
     })
-  //   .then(function(){
-  //     res.json(arr);
-  // })
 
-  
-// }
 })
 var getRadius=function(obj1, obj2){
      return Math.ceil((geolib.getDistance(obj1, obj2))/1000);
